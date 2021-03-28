@@ -1,0 +1,33 @@
+###
+GET http://localhost:3000/registro-empresas
+
+###
+POST http://localhost:3000/registro-empresas
+Content-Type: application/json
+
+{
+    "nombre":"Las Yales SA",
+    "nit":"54DS",
+    "correo":"cristian@gmail.com",
+    "contrasena":"fernando"
+}
+
+###
+GET  http://localhost:3000/empresas
+
+###
+GET  http://localhost:3000/empresa/605fe3d169b0068109b1b113
+
+###
+DELETE  http://localhost:3000/empresa/eliminar/605fe36cca69688094a3b6f9
+
+###
+PUT  http://localhost:3000/empresa/editar/605fe3d169b0068109b1b113
+Content-Type: application/json
+
+{
+    "nombre":"Pacific Black SA",
+    "nit":"54DS",
+    "correo":"cristian@gmail.com",
+    "contrasena":"crisito"
+}
