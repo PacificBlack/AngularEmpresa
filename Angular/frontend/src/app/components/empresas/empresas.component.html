@@ -1,0 +1,41 @@
+<div class= "row">
+<div class="col-md-4">
+  <div class="card">
+    <div class="card-body">
+      <h1>Formulario</h1>
+    </div>
+  </div>
+</div>
+
+
+<div class="col md-8">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nit</th>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Contraseña</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  <tr *ngFor="let empresas of empresasService.arregloEmpresas">
+    <td>{{empresas._id}}</td>
+    <td>{{empresas.nit}}</td>
+    <td>{{empresas.nombre}}</td>
+    <td>{{empresas.correo}}</td>
+    <td>{{empresas.contrasena}}</td>
+    <td>
+      <button type="button" class="btn btn-warning">Editar</button>
+      <button type="button" class="btn btn-danger">Eliminar</button>
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+
+</div>
+</div>
