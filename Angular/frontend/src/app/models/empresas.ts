@@ -1,9 +1,9 @@
 export interface Empresas{
-  _id : String
+  _id?: String
   nombre: String,
   nit: String,
   correo: String,
   contrasena: String,
-  createdAt: String,
-  updatedAt: String
+  createdAt?: String,
+  updatedAt?: String
 }

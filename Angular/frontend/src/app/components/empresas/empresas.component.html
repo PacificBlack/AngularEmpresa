@@ -1,41 +1,78 @@
-<div class= "row">
-<div class="col-md-4">
-  <div class="card">
-    <div class="card-body">
-      <h1>Formulario</h1>
+<div class="row">
+
+
+  <div id="registroform" style="display:none" class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h3>Registro de empresas</h3>
+        <button class="btn btn-secondary" onclick="document.getElementById('registroform').style.display = 'none'">
+          Ocultar
+        </button>
+
+        <form #empresasform="ngForm" (ngSubmit)="addEmpresa(empresasform)">
+
+          <input type="hidden" name="_id" [(ngModel)]="empresasService.selectedEmpresa._id">
+
+          <div class="form-group">
+            <input type="text" name="nit" [(ngModel)]="empresasService.selectedEmpresa.nit" class="form-control" placeholder="Ingresa el nit de tu empresa">
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="nombre" [(ngModel)]="empresasService.selectedEmpresa.nombre" class="form-control" placeholder="Ingresa el nombre de tu empresa">
+          </div>
+
+          <div class="form-group">
+            <input type="email" name="correo" [(ngModel)]="empresasService.selectedEmpresa.correo" class="form-control" placeholder="Ingresa el correo de tu empresa">
+          </div>
+
+          <div class="form-group">
+            <input type="password" name="contrasena" [(ngModel)]="empresasService.selectedEmpresa.contrasena" class="form-control" placeholder="Ingresa la contraseña de tu empresa">
+          </div>
+
+          <button class="btn btn-secondary mr-2" (click)="resetForm(empresasform)">
+            Limpiar
+          </button>
+
+          <button class="btn btn-primary">
+            Registrar
+          </button>
+
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
 
-<div class="col md-8">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Nit</th>
-      <th>Nombre</th>
-      <th>Correo</th>
-      <th>Contraseña</th>
-    </tr>
-  </thead>
+  <div class="col md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nit</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Contraseña</th>
+          <th><button onclick="document.getElementById('registroform').style.display = 'block'" type="button"
+              class="btn btn-success">Registrar</button></th>
+        </tr>
+      </thead>
 
-  <tbody>
+      <tbody>
 
-  <tr *ngFor="let empresas of empresasService.arregloEmpresas">
-    <td>{{empresas._id}}</td>
-    <td>{{empresas.nit}}</td>
-    <td>{{empresas.nombre}}</td>
-    <td>{{empresas.correo}}</td>
-    <td>{{empresas.contrasena}}</td>
-    <td>
-      <button type="button" class="btn btn-warning">Editar</button>
-      <button type="button" class="btn btn-danger">Eliminar</button>
-    </td>
-  </tr>
+        <tr *ngFor="let empresas of empresasService.arregloEmpresas">
+          <td>{{empresas._id}}</td>
+          <td>{{empresas.nit}}</td>
+          <td>{{empresas.nombre}}</td>
+          <td>{{empresas.correo}}</td>
+          <td>{{empresas.contrasena}}</td>
+          <td>
+            <button class="btn btn-warning" onclick="document.getElementById('registroform').style.display = 'block'" (click)="updateEmpresa(empresas)" >Editar</button>
+            <button class="btn btn-danger" (click)="deleteEmpresa(empresas._id)">Eliminar</button>
+          </td>
+        </tr>
 
-  </tbody>
-</table>
+      </tbody>
+    </table>
 
-</div>
+  </div>
 </div>
