@@ -1,0 +1,76 @@
+<div class="row">
+
+  <div class="col md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Cargo</th>
+          <th>Descripcion</th>
+          <th>
+            <button class="btn btn-secondary" onclick="document.getElementById('botones').style.display = 'block'">-</button>
+            <button class="btn btn-secondary" onclick="document.getElementById('ofertasform').style.display = 'block'">+</button>
+
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let ofertas of ofertasService.arregloOfertas">
+          <td>{{ofertas.titulo}}</td>
+          <td>{{ofertas.descripcion}}</td>
+          <td id="botones" style="display:none">
+            <button class="btn btn-warning" onclick="document.getElementById('ofertasform').style.display = 'block'" (click)="updateOferta(ofertas)" >E</button>
+            <button class="btn btn-danger" (click)="deleteOferta(ofertas._id)">D</button>
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <div id="ofertasform" style="display:none" class="col-md-4">
+
+    <div class="card">
+      <button class="btn btn-secondary" onclick="document.getElementById('ofertasform').style.display = 'none'">
+        Ocultar
+      </button>
+      <div class="card-body">
+        <h4>Registro Ofertas</h4>
+
+        <form #ofertasform="ngForm" (ngSubmit)="addOfertas(ofertasform)" >
+
+          <input type="hidden" name="_id" [(ngModel)]="ofertasService.selectOferta._id">
+
+          <div class="form-group">
+            <input type="text" name="id_empresa" [(ngModel)]="ofertasService.selectOferta.id_empresa" class="form-control" placeholder="Ingresa el id de la empresa">
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="titulo" [(ngModel)]="ofertasService.selectOferta.titulo" class="form-control" placeholder="Ingresa el nombre de la vacante">
+          </div>
+
+          <div class="form-group">
+            <textarea  name="descripcion" [(ngModel)]="ofertasService.selectOferta.descripcion" class="form-control" placeholder="Ingresa la descripcion de la vacante"></textarea>
+          </div>
+
+          <button class="btn btn-secondary mr-2" (click)="resetForm(ofertasform)">
+            Limpiar
+          </button>
+
+          <button class="btn btn-primary">
+            Registrar
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+

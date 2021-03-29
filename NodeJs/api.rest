@@ -31,3 +31,36 @@ Content-Type: application/json
     "correo":"cristian@gmail.com",
     "contrasena":"crisito"
 }
+
+
+
+
+
+###
+POST http://localhost:3000/registro-ofertas
+Content-Type: application/json
+ 
+{
+    "id_empresa":"6060dcbdb7438b14c0d3073e",
+    "titulo":"Vendedor de droga",
+    "descripcion": "Esta es una descripcion"
+}
+
+###
+GET  http://localhost:3000/ofertas
+
+###
+GET  http://localhost:3000/oferta/6061086c7968904a1c0f173d
+
+###
+DELETE  http://localhost:3000/ofertas/eliminar/606108797968904a1c0f173e
+
+###
+PUT  http://localhost:3000/ofertas/editar/6061086c7968904a1c0f173d
+Content-Type: application/json
+
+{
+    "id_empresa":"las tapas",
+    "titulo":"Vendedor de vicio",
+    "descripcion": "no descripcion"
+}

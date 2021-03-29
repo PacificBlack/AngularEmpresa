@@ -5,7 +5,7 @@ const router = Router();
 const empresasControl = require('../controllers/empresas.controller.js');
 
 router.post('/registro-empresas', empresasControl.createRegistrosEmpresa);
-router.get('/registro-empresas', empresasControl.getRegistroEmpresa);
+//router.get('/registro-empresas', empresasControl.getRegistroEmpresa);
 
 router.get('/empresas', empresasControl.getEmpresas);
 router.get('/empresa/:id', empresasControl.getEmpresa);

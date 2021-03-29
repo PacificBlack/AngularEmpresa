@@ -11,5 +11,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
 app.use(require('./routes/empresas.routes'));
+app.use(require('./routes/ofertas.routes'));
 
 module.exports = app;
