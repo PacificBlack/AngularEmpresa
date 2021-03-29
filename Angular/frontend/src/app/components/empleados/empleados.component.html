@@ -1,0 +1,80 @@
+<div class="row">
+
+
+  <div id="registroform" style="display:none" class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h3>Registro de Empleados</h3>
+        <button class="btn btn-secondary" onclick="document.getElementById('registroform').style.display = 'none'">
+          Ocultar
+        </button>
+
+        <form #empleadosform="ngForm" (ngSubmit)="addEmpleado(empleadosform)">
+
+          <input type="hidden" name="_id" [(ngModel)]="empleadosService.selectedEmpleado._id">
+
+          <div class="form-group">
+            <input type="text" name="identificacion" [(ngModel)]="empleadosService.selectedEmpleado.identificacion" class="form-control" placeholder="Ingresa tu identificacion">
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="nombre" [(ngModel)]="empleadosService.selectedEmpleado.nombre" class="form-control" placeholder="Ingresa tu nombre">
+          </div>
+
+          <div class="form-group">
+            <input type="email" name="correo" [(ngModel)]="empleadosService.selectedEmpleado.correo" class="form-control" placeholder="Ingresa tu correo">
+          </div>
+
+          <div class="form-group">
+            <input type="password" name="contrasena" [(ngModel)]="empleadosService.selectedEmpleado.contrasena" class="form-control" placeholder="Ingresa una contraseña">
+          </div>
+
+          <button class="btn btn-secondary mr-2" (click)="resetForm(empleadosform)">
+            Limpiar
+          </button>
+
+          <button class="btn btn-primary">
+            Registrar
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nit</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Contraseña</th>
+          <th>
+          <button class="btn btn-secondary" >-</button>
+          <button onclick="document.getElementById('registroform').style.display = 'block'" type="button"
+              class="btn btn-secondary">+</button></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let empleados of empleadosService.arregloEmpleados">
+          <td>{{empleados._id}}</td>
+          <td>{{empleados.identificacion}}</td>
+          <td>{{empleados.nombre}}</td>
+          <td>{{empleados.correo}}</td>
+          <td>{{empleados.contrasena}}</td>
+          <td>
+            <button class="btn btn-secondary" onclick="document.getElementById('registroform').style.display = 'block'" (click)="updateEmpleado(empleados)" >E</button>
+            <button class="btn btn-secondary"(click)="deleteEmpleado(empleados._id)">-</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>

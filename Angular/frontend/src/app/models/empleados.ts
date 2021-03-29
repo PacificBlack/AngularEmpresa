@@ -1,7 +1,7 @@
-export interface Empresas{
+export interface Empleados{
   _id?: String,
   nombre: String,
-  nit: String,
+  identificacion: String,
   correo: String,
   contrasena: String,
   createdAt?: String,

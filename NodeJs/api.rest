@@ -36,6 +36,8 @@ Content-Type: application/json
 
 
 
+
+
 ###
 POST http://localhost:3000/registro-ofertas
 Content-Type: application/json
@@ -63,4 +65,41 @@ Content-Type: application/json
     "id_empresa":"las tapas",
     "titulo":"Vendedor de vicio",
     "descripcion": "no descripcion"
+}
+
+
+
+
+
+
+
+###
+POST http://localhost:3000/registro-empleados
+Content-Type: application/json
+
+{
+    "nombre":"Fernando",
+    "identificacion":"1006188941",
+    "correo":"cristian@gmail.com",
+    "contrasena":"mosquera"
+}
+
+###
+GET  http://localhost:3000/empleados
+
+###
+GET  http://localhost:3000/empleado/606156c2b96a459d5dc64377
+
+###
+DELETE  http://localhost:3000/empleado/eliminar/606156c2b96a459d5dc64377
+
+###
+PUT  http://localhost:3000/empleado/editar/606156cdb96a459d5dc64378
+Content-Type: application/json
+
+{
+    "nombre":"Cristiano Ronaldo",
+    "identificacion":"1006188941",
+    "correo":"cristian@gmail.com",
+    "contrasena":"mosquera"
 }

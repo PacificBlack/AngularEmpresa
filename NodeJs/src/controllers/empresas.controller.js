@@ -27,9 +27,4 @@ objetoEmpresa.getEmpresa = async (req, res) => {
     res.json(empresa);
 }
 
-
-objetoEmpresa.getRegistroEmpresa = (req, res) => {
-    res.send('Un Registro')
-}
-
 module.exports = objetoEmpresa;
