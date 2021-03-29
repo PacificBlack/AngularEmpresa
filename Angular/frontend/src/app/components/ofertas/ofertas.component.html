@@ -7,7 +7,7 @@
           <th>Cargo</th>
           <th>Descripcion</th>
           <th>
-            <button class="btn btn-secondary" onclick="document.getElementById('botones').style.display = 'block'">-</button>
+            <button class="btn btn-secondary" >-</button>
             <button class="btn btn-secondary" onclick="document.getElementById('ofertasform').style.display = 'block'">+</button>
 
           </th>
@@ -19,11 +19,10 @@
         <tr *ngFor="let ofertas of ofertasService.arregloOfertas">
           <td>{{ofertas.titulo}}</td>
           <td>{{ofertas.descripcion}}</td>
-          <td id="botones" style="display:none">
-            <button class="btn btn-warning" onclick="document.getElementById('ofertasform').style.display = 'block'" (click)="updateOferta(ofertas)" >E</button>
-            <button class="btn btn-danger" (click)="deleteOferta(ofertas._id)">D</button>
+          <td>
+            <button class="btn btn-secondary"  onclick="document.getElementById('ofertasform').style.display = 'block'" (click)="updateOferta(ofertas)" >E</button>
+            <button class="btn btn-secondary"  (click)="deleteOferta(ofertas._id)">D</button>
           </td>
-
         </tr>
 
       </tbody>

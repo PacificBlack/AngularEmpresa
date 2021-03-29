@@ -52,8 +52,10 @@
           <th>Nombre</th>
           <th>Correo</th>
           <th>Contraseña</th>
-          <th><button onclick="document.getElementById('registroform').style.display = 'block'" type="button"
-              class="btn btn-success">Registrar</button></th>
+          <th>
+          <button class="btn btn-secondary" >-</button>
+          <button onclick="document.getElementById('registroform').style.display = 'block'" type="button"
+              class="btn btn-secondary">+</button></th>
         </tr>
       </thead>
 
@@ -66,8 +68,8 @@
           <td>{{empresas.correo}}</td>
           <td>{{empresas.contrasena}}</td>
           <td>
-            <button class="btn btn-warning" onclick="document.getElementById('registroform').style.display = 'block'" (click)="updateEmpresa(empresas)" >Editar</button>
-            <button class="btn btn-danger" (click)="deleteEmpresa(empresas._id)">Eliminar</button>
+            <button class="btn btn-secondary" onclick="document.getElementById('registroform').style.display = 'block'" (click)="updateEmpresa(empresas)" >E</button>
+            <button class="btn btn-secondary"(click)="deleteEmpresa(empresas._id)">-</button>
           </td>
         </tr>
 
